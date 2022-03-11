@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+
+        body {
+            height: 3000px;
+            width: 2300px;
+        }
+
+        #scrollTop {
+            width: 50px;
+            height: 50px;
+            background-color: blueviolet;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-weight: bold;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        #scrollTop::before {
+            content: "↑";
+            /* border: 1px solid red; */
+            position: absolute;
+            width: 50px;
+            top: -50px;
+            left: 0;
+            color: black;
+            font-size: 30px;
+        }
+        #scrollTop:hover {
+            background-color: black;
+        }
+        #scrollTop:hover::before  {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>자바스크립트를 활용한 스크롤 탑 이동</h1>
+    <aside id="scrollTop">top</aside>
+    <script>
+        document.getElementById("scrollTop").onclick = function () {
+            console.log("click");
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+                // auto, smooth
+            });
+        }
+    </script>
+</body>
+
+</html>
