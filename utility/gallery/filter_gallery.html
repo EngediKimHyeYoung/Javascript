@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="filter_gallery.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .title {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .gallerySet {
+        /* border: 1px solid red; */
+        width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+    }
+
+    .set {
+        /* border: 1px solid blue; */
+        /* width: 100%; */
+        padding: 20px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+    .set img {
+        width: 100%;
+    }
+
+    #buttonSet {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 12px 16px;
+        cursor: pointer;
+        display: inline-block;
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+
+    .btn:hover {
+        background-color: #ddd;
+    }
+</style>
+
+<body>
+    <div id="buttonSet">
+        <div id="all" class="btn"> Show all</div>
+        <div id="nature" class="btn"> Nature</div>
+        <div id="cars" class="btn"> Cars</div>
+        <div id="people" class="btn"> People</div>
+    </div>
+
+    <div class="gallerySet">
+        <div id="set0" class="set nature">
+            <img src="mountains.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+        <div id="set1" class="set nature">
+            <img src="lights.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+        <div id="set2" class="set cars">
+            <img src="cars1.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+
+        <div id="set3" class="set nature">
+            <img src="nature.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+        <div id="set4" class="set cars">
+            <img src="cars2.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+        <div id="set5" class="set cars">
+            <img src="cars3.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+
+        <div id="set6" class="set people">
+            <img src="people1.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+        <div id="set7" class="set people">
+            <img src="people2.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+        <div id="set8" class="set people">
+            <img src="people3.jpg" alt="">
+            <div class="title">Title</div>
+            <p>설명이 들어갑니다.</p>
+        </div>
+    </div>
+</body>
+
+</html>

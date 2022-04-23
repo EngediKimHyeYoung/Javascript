@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 모든 태그 및 이미지 로드 후 실행
+        window.onload = function () {
+            console.log("onload");
+            let mouseCursor = document.querySelector(".cursor");
+            let navLinks = document.querySelectorAll(".gnbMenu li");
+
+            function cursor(e) {
+                // console.log(e);
+                mouseCursor.style.top = e.pageY + "px";
+                mouseCursor.style.left = e.pageX + "px";
+            }
+        
+            navLinks.forEach(function(link){
+                console.log(link);
+                link.addEventListener("mouseover", function() {
+                    console.log("over");
+                    mouseCursor.classList.add("link_hover");
+                    link.classList.add("hovered_link");
+                });
+                link.addEventListener("mouseleave", () => {
+                    mouseCursor.classList.remove("link_hover");
+                    link.classList.remove("hovered_link");
+                });
+            });
+            window.addEventListener("mousemove", cursor);
+        }
+
+        // 태그로드후 실행
+        window.addEventListener("DOMContentLoaded", function () {
+            console.log("DomContentLoaded");
+        });
+    </script>
+
+    <style>
+        body {
+            cursor: none;
+            background-image: url("img/andres-molina-cbBjOfyRe2A-unsplash.jpg");
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        .inner {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+        }
+
+        .gnbMenu {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+        }
+
+        .gnbMenu li {
+            margin: 0 60px;
+            /* border: 1px solid red; */
+        }
+
+        .gnbMenu li a {
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .gnbMenu li a:hover {
+            color: white;
+        }
+
+        .cursor {
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            transition-property: background, transform;
+            transform-origin: 100% 100%;
+            z-index: -1;
+            backdrop-filter: grayscale();
+            /* backdrop-filter: blur(3px); */
+        }
+
+        .link_hover {
+            transform: scale(2);
+            background-color: black;
+        }
+
+        .hovered_link {
+            color: white;
+        }
+
+        #profileSec {
+            text-align: center;
+            width: fit-content;
+            margin-top: 20px;
+        }
+
+        .profile {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile img {
+            position: relative;
+            z-index: -3;
+        }
+
+        .cover_desc {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor"></div>
+    <div class="inner">
+        <header>
+            <nav>
+                <h1>사용자 정의 마우스</h1>
+                <ul class="gnbMenu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="profileSec">
+            <div class="profile">
+                <img src="img/hqdefault.jpg" alt="hqdefault">
+            </div>
+            <div class="cover_desc">
+                <h2>K팝 시티즌</h2>
+                <p>K팝 전문가 뭉친 NFT 프로젝트</p>
+            </div>
+        </section>
+
+        <footer></footer>
+    </div>
+    <!-- https://www.youtube.com/watch?v=TpwpAYi-p2w&t=42s -->
+    <!-- https://developedbyed.com/ -->
+
+</body>
+
+</html>

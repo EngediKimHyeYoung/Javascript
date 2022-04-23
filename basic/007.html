@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <form>
+        <label for="name">이름:</label>
+        <input id="name" type="text" placeholder="홍길동" name="pName" required>
+        <label for="age">나이:</label>
+        <input id="age" type="text" placeholder="20"name="pAge" required>
+        <input type="submit" value="확인" id="checkBtn">
+        <button id="button">check</button>
+    </form>
+
+    <script>
+        document.getElementById("checkBtn").onclick = function(){
+            console.log(document.getElementById("name").value);
+            console.log(document.getElementById("age").value);
+            document.write(document.getElementById("name").value +"님 " + document.getElementById("age").value +"살이시군요");
+        };
+    </script>
+</body>
+</html>

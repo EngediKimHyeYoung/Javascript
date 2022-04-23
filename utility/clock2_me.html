@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // 로드 이벤트
+        window.onload = function () {
+
+            // 변수 선언
+            var myDate, year, month, date, day, hour, minute, second, ampm;
+            // 배열 생성
+            var myDay = ["일", "월", "화", "수", "목", "금", "토"];
+
+            // 사용자 정의 함수 myTime 선언
+            var myTime = function () {
+                myDate = new Date();
+                year = myDate.getFullYear();
+                month = myDate.getMonth() + 1;
+                date = myDate.getDate();
+                day = myDate.getDay();
+                hour = myDate.getHours();
+                minute = myDate.getMinutes();
+                second = myDate.getSeconds();
+
+                if (hour < 13) {
+                    ampm = "AM";
+                } else {
+                    ampm = "PM";
+                }
+                if (hour > 12) {
+                    hour = hour - 12;
+                }
+                if (minute < 10) {
+                    minute = "0" + minute;
+                }
+                if (second < 10) {
+                    second = "0" + second;
+                }
+
+                document.getElementById("text1").innerText = year + "년 " + month + "월 " + date + "일 " + myDay[day] + "요일";
+                document.getElementById("text2").innerText = "[" + ampm + ". " + hour + ":" + minute + ":" + second + "]";
+
+                document.getElementById("hand1").style.transform = "rotate(" + (hour * 30 + minute * 0.5) + "deg)";
+                document.getElementById("hand2").style.transform = "rotate(" + (minute * 6 + second * 0.1) + "deg)";
+                document.getElementById("hand3").style.transform = "rotate(" + (second * 6) + "deg)";
+            }
+            // 반복 함수
+            setInterval(function () {
+                // 함수 호출
+                myTime();
+            }, 1000);
+
+            // 자바스크립트 요소 동적 생성
+            var clockSet = document.createElement("div");
+            clockSet.setAttribute('id', 'clock');
+            document.getElementById("clockSection").append(clockSet);
+
+            var textSet = document.createElement("div");
+            textSet.setAttribute('id', 'text');
+            document.getElementById("clock").after(textSet);
+
+            var spanT1, spanT2;
+            var spanT1 = document.createElement("span");
+            var spanT2 = document.createElement("span");
+            for(var i=1; i<3; i++){
+                var a = eval("spanT" + i);
+                a.setAttribute('id', 'text'+i);
+                document.getElementById("text").append(a);
+            }
+
+            var span1, span2, span3;
+            span1 = document.createElement("span");
+            span2 = document.createElement("span");
+            span3 = document.createElement("span");
+            span4 = document.createElement("span");
+            for(var i=1; i<5; i++){
+                var a = eval("span" + i);
+                a.setAttribute('id', 'hand' + i);
+                document.getElementById("clock").append(a);
+            }
+            // 함수 호출
+            myTime();
+
+        }
+    </script>
+
+    <style>
+        .blind {
+            display: none;
+        }
+
+        #clockSection {
+            position: relative;
+            /* border: 1px solid red; */
+            width: fit-content;
+            text-align: center;
+            position: fixed;
+            top: 50px;
+            right: 50px;
+        }
+        #clockSection #text {
+            margin-top: 5px;
+        }
+        #clockSection #text1 {
+            font-size: 13px;
+        }
+        #clockSection #text2 {
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+        }
+
+        #clock {
+            width: 140px;
+            height: 140px;
+            background-color: rgb(249, 249, 158);
+            border-radius: 50%;
+            position: relative;
+            transform: rotate(180deg);
+        }
+
+        #clock #hand1 {
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -5px;
+            width: 10px;
+            height: 40px;
+            z-index: 1;
+            transform-origin: 5px 0;
+            /* transform: rotate(45deg); */
+        }
+
+        #clock #hand2 {
+            background-color: blue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -3px;
+            width: 6px;
+            height: 60px;
+            z-index: 2;
+            transform-origin: 3px 0;
+        }
+
+        #clock #hand3 {
+            background-color: green;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -2px;
+            width: 4px;
+            height: 70px;
+            z-index: 3;
+            transform-origin: 2px 0;
+        }
+        #clock #hand4 {
+            width: 20px;
+            height: 20px;
+            border: 2px solid black;
+            box-sizing: border-box;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+            z-index: 4;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>시간 출력 & <span>시계</span></h1>
+
+    <section id="clockSection"></section>
+
+</body>
+
+</html>

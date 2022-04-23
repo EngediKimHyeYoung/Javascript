@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function(){
+            $("#h_list1").on("click", function(){
+                $("#h_gallery").css("background","orange");
+            });
+            $("#h_list2").on("click", function(){
+                $("#h_gallery").css("background","aqua");
+            });
+            $("#h_list3").on("click", function(){
+                $("#h_gallery").css("background","red");
+            });
+        });
+    </script>
+    <style>
+        #h_listGallery {
+            border: 2px solid red;
+            width: 800px;
+            height: 600px;
+            display: flex;
+        }
+
+        #h_listSet {
+            border: 2px solid blue;
+            /* height: 200px; */
+            flex: 1.5;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* grid-auto-rows: minmax(30px, auto); */
+            grid-gap: 0.8rem;
+        }
+        #h_listSet div {
+            
+        }
+
+        #h_gallery {
+            border: 2px solid blue;
+            flex: 2;
+            background: orange;
+            margin-left: 15px;
+        }
+
+        .h_listStyle {
+            /* height: 30px; */
+            /* height: 30px; */
+            border: 2px solid black;
+        }
+        #h_list1 {
+            background: orange;
+        }
+        #h_list2 {
+            background: aqua;
+        }
+        #h_list3 {
+            background: red;
+        }
+        #h_list4 {
+            background: green;
+        }
+        #h_list5 {
+            background: aquamarine;
+        }
+        #h_list5 {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="h_listGallery">
+        <div id="h_listSet">
+            <div id="h_list1" class="h_listStyle"></div>
+            <div id="h_list2" class="h_listStyle"></div>
+            <div id="h_list3" class="h_listStyle"></div>
+            <div id="h_list4" class="h_listStyle"></div>
+            <div id="h_list5" class="h_listStyle"></div>
+            <div id="h_list6" class="h_listStyle"></div>
+            <div id="h_list7" class="h_listStyle"></div>
+            <div id="h_list8" class="h_listStyle"></div>
+            <div id="h_list9" class="h_listStyle"></div>
+            <div id="h_list10" class="h_listStyle"></div>
+            <div id="h_list11" class="h_listStyle"></div>
+            <div id="h_list12" class="h_listStyle"></div>
+            <div id="h_list13" class="h_listStyle"></div>
+            <div id="h_list14" class="h_listStyle"></div>
+            <div id="h_list15" class="h_listStyle"></div>
+        </div>
+        <div id="h_gallery"></div>
+    </div>
+</body>
+
+</html>

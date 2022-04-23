@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // 로드 이벤트
+        window.onload = function () {
+            // 변수 선언
+            var myDate;
+            var year;
+            var month;
+            var date;
+            var day;
+            var hour;
+            var minute;
+            var second;
+            var ampm;
+            // 배열 생성
+            var myDay = ["일", "월", "화", "수", "목", "금", "토"];
+
+            // 사용자 정의 함수 myTime 선언
+            var myTime = function(){
+                myDate = new Date();
+                year = myDate.getFullYear();
+                month = myDate.getMonth() + 1;
+                date = myDate.getDate();
+                day = myDate.getDay();
+                hour = myDate.getHours();
+                minute = myDate.getMinutes();
+                second = myDate.getSeconds();
+
+                if(hour < 13) {
+                    ampm = "AM";
+                } else {
+                    ampm = "PM";
+                }
+                if(hour < 10){
+                    hour = "0" + hour;
+                }
+                if(minute < 10){
+                    minute = "0" + minute;
+                }
+                if(second < 10){
+                    second = "0" + second;
+                }
+                
+                document.getElementById("text1").innerText = year + "년 " + month + "월 " + date + "일 " + myDay[day] + "요일";
+                document.getElementById("text2").innerText = "[" + ampm + ". " + hour + ":" + minute + ":" + second + "]";
+            }
+            // 반복 함수
+            setInterval(function () {
+                // 함수 호출
+                myTime();
+            }, 1000);
+
+            // 함수 호출
+            myTime();
+
+            // 테스트: html 요소 접근
+            // console.log(document.getElementById("clockSection").getElementsByTagName("span")[1]);
+            // var textT1 = document.getElementById("clockSection").getElementsByTagName("span")[1];
+            // textT1.innerText  = "dddddd";
+        }
+    </script>
+
+    <style>
+        .blind {
+            display: none;
+        }
+        #clockSection #text2 {
+            font-size: 50px;
+            font-weight: bold;
+            display: block;
+        }
+        /* #clockSection>p>span:nth-child(2) {
+            font-size: 50px;
+            font-weight: bold;
+            display: block;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1>시간 출력 & <span>시계</span></h1>
+
+    <section id="clockSection">
+        <h2 class="blind">시간정보</h2>
+        <p>
+            <span id="text1"></span>
+            <span id="text2"></span>
+        </p>
+    </section>
+
+
+</body>
+
+</html>

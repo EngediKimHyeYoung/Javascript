@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var mouseCursor = document.querySelector(".cursor");
+            var navLinks = document.querySelectorAll(".gnbMenu li");
+            console.log(navLinks);
+
+            navLinks.forEach(function(menu){
+                console.log(menu);
+                menu.addEventListener("mouseover", function(){
+                    console.log("over");
+                    mouseCursor.classList.add("link_hover");
+                });
+                menu.addEventListener("mouseleave", function(){
+                    console.log("over");
+                    mouseCursor.classList.remove("link_hover");
+                });
+            });
+
+            function myCursor(e){
+                mouseCursor.style.top = e.pageY + "px";
+                mouseCursor.style.left = e.pageX + "px";
+            }
+            window.addEventListener("mousemove", myCursor);
+        }
+    </script>
+    <style>
+        /* 초기화 코드 */
+        h1, h2, h3, h4, h5, h6, p, ul, li, ol {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url("img/back.jpg");
+            background-size: cover;
+            overflow: hidden;
+            /* cursor: none; */
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        nav {
+            /* border: 3px solid red; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav h1, nav .gnbMenu {
+            /* border: 2px solid blue; */
+        }
+        .gnbMenu {
+            display: flex;
+        }
+        .gnbMenu li {
+            margin: 0 40px;
+            list-style: none;
+            border: 1px solid red;
+            padding: 0 20px;
+        }
+        .cursor {
+            width: 50px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 50%;
+            /* background-color: yellow; */
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            transform: translate(-50%, -50%);
+            transform-origin: 100% 100%;
+            transition: all 0.3s ease;
+            transition-property: background, transform;
+            /* backdrop-filter: grayscale(); */
+            backdrop-filter: blur(3px);
+        }
+        .link_hover {
+            transform: scale(2);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        #profileSection img {
+            position: relative;
+            z-index: -3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="cursor" id="my_cursor"></div> -->
+    <div class="cursor"></div>
+    <header>
+        <nav>
+            <h1 id="logo"><a href="#">LifeLovePeople</a></h1>
+            <ul class="gnbMenu">
+                <li><a href="#">work</a></li>
+                <li><a href="#">profile</a></li>
+                <li><a href="#">contact</a></li>
+                <li><a href="#">story</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="profileSection">
+        <img src="img/hqdefault.jpg" alt="프로필 이미지">
+        <h2>KimHyeYoung</h2>
+        <p>
+            <a href="mailto:engedi2019@gmail.com">engedi2019@gmail.com</a><br>
+            <a href="https://www.engedi.kr" target="_blank">https://www.engedi.kr</a>
+        </p>
+    </section>
+
+    <footer>
+        <address></address>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("hi");
+        console.log("24");
+        console.log(24);
+        document.write("hi");
+
+        var result1 = prompt("이름을 입력하세요", "아무개");
+        var result2 = confirm("이름이" + result1 + "입니까?");
+        console.log(result2);
+
+        if(result2){
+            alert("이름을 잘 입력하셨어요~");
+            document.write(result1 + "님 환영합니다.");
+        } else {
+            alert("다시 입력하세요~");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
